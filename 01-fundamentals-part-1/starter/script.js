@@ -81,7 +81,126 @@
 // console.log(score); // an error will appear because the variable score has already been declared.
 
 // EXERCISE 3: Data Type Detective
-console.log(typeof 42);
-console.log(typeof "Hello");
-console.log(typeof true);
-console.log(typeof undefined);
+// console.log(typeof 42);
+// console.log(typeof "Hello");
+// console.log(typeof true);
+// console.log(typeof undefined);
+
+////////////////////////////////////
+// Basic Operators - Math operators
+// console.log("=== MATH OPERATORS ===");
+
+// const now = 2037;
+// const ageJonas = now - 1991;
+// const ageSarah = now - 2018;
+// console.log(ageJonas, ageSarah);
+
+// console.log(ageJonas * 2, ageJonas / 10, 2 ** 3);
+
+// console.log("Math operations:");
+// console.log("Addition:", 10 + 5);
+// console.log("Subtraction:", 20 - 8); 
+// console.log("Multiplication:", 4 * 7); 
+// console.log("Division:", 15 / 3);
+// console.log("Exponentiation:", 2 ** 3);
+
+// // Math with strings
+// const firstName = "Jonas";
+// const lastName = "Doe";
+// console.log(firstName + " " + lastName);
+
+// console.log("Hello " + "World" + "!"); 
+// console.log("I am " + 25 + " years old");
+
+// ////////////////////////////////////
+// // Assignment operators
+// console.log("=== ASSIGNMENT OPERATORS ===");
+
+// let x = 10 + 5; 
+// console.log("x starts as:", x);
+
+// x += 10; 
+// console.log("After x += 10:", x);
+
+// x *= 4; 
+// console.log("After x *= 4:", x);
+
+// x /= 2; 
+// console.log("After x /= 2:", x);
+
+// x++; 
+// console.log("After x++:", x); // 51
+
+// x--;
+// x--; 
+// console.log("After x-- twice:", x); 
+
+// // Exercise: Score Calculator
+// let score = 100;
+// score += 50;  
+// score *= 2;  
+// score -= 25;   
+// score++;     
+// score++;       
+// console.log(score);
+
+// ////////////////////////////////////
+// // Comparison operators
+// console.log("=== COMPARISON OPERATORS ===");
+
+// console.log("Age comparison:");
+// console.log(ageJonas > ageSarah); 
+// console.log(ageSarah >= 18); 
+// console.log(ageJonas < 30); 
+
+// console.log("Number comparisons:");
+// console.log(25 > 20); 
+// console.log(15 < 10); 
+// console.log(18 >= 18); 
+// console.log(16 <= 15); 
+
+// const isFullAge = ageSarah >= 18;
+// console.log("Sarah is adult:", isFullAge); 
+
+// const isJonasOlder = ageJonas > ageSarah;
+// console.log("Jonas is older:", isJonasOlder);
+
+// console.log("Complex comparison:");
+// console.log(now - 1991 > now - 2018);
+
+// // Exercise: Age Verification
+// const myAge = 20; 
+// console.log(myAge >= 18);
+
+// console.log(100 > 99); 
+
+// const comparisonResult = myAge >= 18; 
+// console.log(comparisonResult);
+
+// console.log((myAge + 5) > (7 + 11));
+
+// let x, y;
+// x = y = 25 - 10 - 5; 
+// console.log(x, y);
+
+// const averageAge = (ageJonas + ageSarah) / 2;
+// console.log(ageJonas, ageSarah, averageAge);
+
+// Coding Challenge #1: BMI Calculator
+//Test Data
+const massMark = 78;
+const heightMark = 1.69;
+const massJohn = 92;
+const heightJohn = 1.95;
+
+// BMI = mass / height ** 2)
+const BMIMark = massMark / heightMark ** 2;
+const BMIJohn = massJohn / heightJohn ** 2;
+
+const markHigherBMI = BMIMark > BMIJohn;
+
+console.log("Mark's BMI:", BMIMark);
+console.log("John's BMI:", BMIJohn);
+
+console.log("Mark has higher BMI:", markHigherBMI);
+
