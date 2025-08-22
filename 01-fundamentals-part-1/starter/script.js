@@ -357,21 +357,241 @@
 // }
 
 // Coding Challenge #2: BMI Comparison
-const massMark = 78;
-const heightMark = 1.69;
-const massJohn = 92;
-const heightJohn = 1.95;
+// const massMark = 78;
+// const heightMark = 1.69;
+// const massJohn = 92;
+// const heightJohn = 1.95;
 
-const BMIMark = massMark / heightMark ** 2;
-const BMIJohn = massJohn / (heightJohn * heightJohn);
-console.log(BMIMark, BMIJohn);
+// const BMIMark = massMark / heightMark ** 2;
+// const BMIJohn = massJohn / (heightJohn * heightJohn);
+// console.log(BMIMark, BMIJohn);
 
-// BMI comparison
-if (BMIMark > BMIJohn) {
-  console.log(`Mark's BMI (${BMIMark}) is higher than John's (${BMIJohn})!`);
-} else if (BMIJohn > BMIMark) {
-  console.log(`John's BMI (${BMIJohn}) is higher than Mark's (${BMIMark})!`);
-} else {
-  console.log(`Mark and John have the same BMI (${BMIMark})!`);
-}
+// // BMI comparison
+// if (BMIMark > BMIJohn) {
+//   console.log(`Mark's BMI (${BMIMark}) is higher than John's (${BMIJohn})!`);
+// } else if (BMIJohn > BMIMark) {
+//   console.log(`John's BMI (${BMIJohn}) is higher than Mark's (${BMIMark})!`);
+// } else {
+//   console.log(`Mark and John have the same BMI (${BMIMark})!`);
+// }
 
+////////////////////////////////////
+// Type Conversion and Coercion
+
+// const inputYear = "1991";
+// console.log(Number(inputYear), inputYear); 
+// console.log(Number(inputYear) + 18); 
+
+// console.log(Number("Jonas")); // NaN (Not a Number) but is a type number
+// console.log(typeof NaN);
+
+// console.log(String(23), 23);
+// console.log(typeof String(23)); 
+
+// console.log("I am " + 23 + " years old");
+// console.log("23" - "10" - 3);
+// console.log("23" / "2");
+// console.log("23" * "2");
+
+// let n = "1" + 1;
+// n = n - 1; 
+// console.log(n);
+
+// console.log(2 + 3 + 4 + "5"); 
+// console.log("10" - "4" - "3" - 2 + "5"); 
+
+// // Exercise 1: Equality Detective
+// console.log("5" + 2); 
+// console.log("5" - 2); 
+// console.log("5" * 2); 
+// console.log("5" / 2); 
+
+// const userAge = "25"; 
+// const userScore = 95;
+
+// // string to numb
+// const ageNumber = Number(userAge);
+// console.log(ageNumber, typeof ageNumber);
+
+// //num to string
+// const scoreString = String(userScore);
+// console.log(scoreString, typeof scoreString);
+
+// Exercise 2: Fix the Bug
+// const num1 = Number(prompt("First number:"));
+// const num2 = Number(prompt("Second number:"));
+// const sum = num1 + num2;
+// console.log(`Sum: ${sum}`);
+
+////////////////////////////////////
+// Equality Operators
+
+// const age = "18";
+// if (age === 18) console.log("You just became an adult :D (strict)");
+// if (age == 18) console.log("You just became an adult :D (loose)");
+
+// console.log("18" === 18); // different types
+// console.log("18" == 18); // coercion happens
+// console.log(18 === 18); // same type and value
+
+// == can be dangerous
+// console.log("0" == 0); //string converted
+// console.log(0 == false); //boolean converted
+// console.log("0" == false); //both converted
+// console.log(null == undefined); //special case
+
+//cases that cause bugs
+// console.log("" == 0);
+// console.log("   " == 0); 
+
+// Convert explicitly, then compare strictly
+// const favourite = Number(prompt("What's your favourite number?"));
+// console.log(favourite);
+// console.log(typeof favourite);
+
+// if (favourite === 23) {
+//   console.log("Cool! 23 is an amazing number!");
+// } else if (favourite === 7) {
+//   console.log("7 is also a cool number");
+// } else if (favourite === 9) {
+//   console.log("9 is also a cool number");
+// } else {
+//   console.log("Number is not 23 or 7 or 9");
+// }
+
+// not-equal operator
+// if (favourite !== 23) console.log("Why not 23?");
+
+//Exercise 1: Equality Detective
+// console.log(5 === "5");
+// console.log(5 == "5");
+// console.log(true === 1);
+// console.log(true == 1);
+// console.log(false === 0);
+// console.log(false == 0);
+
+// Exercise 2: Fix the Login System
+// const username = prompt("Username:");
+// const password = prompt("Password:");
+
+// if (username === "admin" && password === "1234") {
+//   console.log("Welcome admin!");
+// } else {
+//   console.log("Access denied");
+// }
+
+////////////////////////////////////
+// Logical Operators
+
+// const hasDriversLicense = true;
+// const hasGoodVision = true; 
+
+// console.log(hasDriversLicense && hasGoodVision); // AND
+// console.log(hasDriversLicense || hasGoodVision); // OR
+// console.log(!hasDriversLicense); // NOT
+
+// const isTired = false; 
+// console.log(hasDriversLicense && hasGoodVision && !isTired);
+
+// if (hasDriversLicense && hasGoodVision && !isTired) {
+//   console.log("Sarah is able to drive!");
+// } else {
+//   console.log("Someone else should drive...");
+// }
+
+//complex scenarios
+// const age = 20;
+// const hasPermission = true;
+// const hasExperience = false;
+
+// if ((age >= 18 || hasPermission) && hasExperience) {
+//   console.log("Approved to drive");
+// } else {
+//   console.log("Not approved to drive");
+// }
+
+// Exercise 1: Club Entry System
+// const age = 20;     
+// const hasID = false; 
+// const isVIP = true; 
+
+// if ((age >= 21 && hasID) || isVIP) {
+//   console.log('Welcome to the club!');
+// } else {
+//   console.log('Sorry, you cannot enter');
+// }
+
+// Exercise 2: Weather Advisor
+// const temperature = 30; // Celsius
+// const isRaining = false;
+// const isWindy = true;
+
+// if (temperature >= 20 && temperature <= 30 && !isRaining && !isWindy) {
+//   console.log("Perfect day!");
+// } else if (temperature >= 15 && temperature <= 35 && !isRaining) {
+//   console.log("Good day!");
+// } else {
+//   console.log("Stay inside");
+// }
+
+////////////////////////////////////
+// The Conditional (Ternary) Operator
+
+// const age = 23;
+
+// const drink = age >= 18 ? "wine" : "water";
+// console.log(drink);
+
+// let drink2;
+// if (age >= 18) {
+// drink2 = "wine";
+// } else {
+// drink2 = "water";
+// }
+// console.log(drink2);
+
+// console.log(`I like to drink ${age >= 18 ? "wine" : "water"}`);
+
+// const status = score >= 60 ? "passed" : "failed";
+// const message = isLoggedIn ? "Welcome back!" : "Please log in";
+// const discount = isPremium ? 0.2 : 0.1;
+
+// if (score >= 90) {
+//   console.log("Excellent!");
+//   grade = "A";
+//   bonus = true;
+// } else if (score >= 80) {
+//   console.log("Good job!");
+//   grade = "B";
+// }
+
+// Exercise 1: Status Messages
+// Login status
+// const isLoggedIn = true;
+// let welcomeMessage = isLoggedIn ? "Welcome back!" : "Please sign in";
+// console.log(welcomeMessage);
+
+// Price with discount
+// const isPremium = false;
+// let price = isPremium ? 100 * 0.8 : 100;
+// console.log(price);
+
+// Exercise 2: Smart Responses
+// const score = 85;
+// const weather = "sunny";
+// const battery = 15; // percentage
+
+// Smart responses
+// const scoreMsg = `Your score: ${score} (${score >= 60 ? "Passed" : "Failed"})`;
+// const weatherMsg = `Weather is ${weather} (${weather === "sunny" ? "Great for outdoor activities" : "Stay inside"})`;
+// const batteryMsg = `Battery: ${battery}% (${battery < 20 ? "Low battery warning" : "Battery OK"})`;
+
+// console.log(scoreMsg);
+// console.log(weatherMsg);
+// console.log(batteryMsg);
+
+// Final Challenge: Tip Calculator
+const bill = 275; 
+const tip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+
+console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`);
