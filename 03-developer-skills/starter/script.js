@@ -199,199 +199,358 @@
 
 // console.log('Framework mastered - ready for independent problem solving!');
 
+// 'use strict';
+
+// console.log('=== HOUR 3: RESEARCH & DEBUGGING MASTERY ===');
+// console.log(
+//   'Goal: Master research and debugging like a professional developer'
+// );
+// console.log(
+//   'Strategic research builds lasting knowledge, not just quick fixes'
+// );
+
+// //finding max value in array
+// function demonstrateArrayMax(numbers) {
+//   if (!numbers.length) {
+//     return { method1: null, method2: null, method3: null };
+//   }
+
+//   const method1 = Math.max(...numbers);
+
+//   // for loop
+//   let method2 = numbers[0];
+//   for (let i = 1; i < numbers.length; i++) {
+//     if (numbers[i] > method2) method2 = numbers[i];
+//   }
+
+//   // reduce method
+//   const method3 = numbers.reduce((max, current) =>
+//     current > max ? current : max
+//   );
+
+//   return { method1, method2, method3 };
+// }
+
+// const testNumbers = [3, 7, 2, 9, 1, 5];
+// const maxResults = demonstrateArrayMax(testNumbers);
+// console.log('Multiple approaches from research:', maxResults);
+
+// //stack overflow
+// function reverseStringMethods(str) {
+//   // most common
+//   const method1 = str.split('').reverse().join('');
+
+//   // manual loop
+//   let method2 = '';
+//   for (let i = str.length - 1; i >= 0; i--) {
+//     method2 += str[i];
+//   }
+
+//   //modern spread operator
+//   const method3 = [...str].reverse().join('');
+
+//   return { method1, method2, method3 };
+// }
+
+// const reverseResults = reverseStringMethods('hello');
+// console.log('Stack Overflow research results:', reverseResults);
+
+// // MDN
+// function demonstrateConcat() {
+//   const array1 = [1, 2, 3];
+//   const array2 = [4, 5, 6];
+//   const array3 = [7, 8, 9];
+
+//   const simple = array1.concat(array2);
+//   const multiple = array1.concat(array2, array3);
+
+//   console.log('Original array1 unchanged:', array1);
+
+//   return { simple, multiple };
+// }
+
+// const concatResults = demonstrateConcat();
+// console.log('MDN documentation applied:', concatResults);
+
+// // systematic debugging
+// function calculateAverageScore(scores) {
+//   let total; // should be initialized to 0
+
+//   for (let i = 0; i <= scores.length; i++) {
+//     // bug should be < not <=
+//     total += scores[i];
+//   }
+
+//   return total / (scores.length + 1);
+// }
+
+// const testScores = [85, 92, 78, 96, 88];
+// const buggyResult = calculateAverageScore(testScores);
+// console.log('Buggy result:', buggyResult);
+
+// //console debugging
+// function demonstrateConsoleDebugging(data) {
+//   console.group('Debugging Session');
+
+//   console.log('Input data:', data);
+
+//   if (typeof data !== 'object') {
+//     console.warn('Warning: Expected object, got', typeof data);
+//   }
+
+//   console.table(data);
+//   console.groupEnd();
+
+//   return Array.isArray(data) ? data.length : Object.keys(data).length;
+// }
+
+// const arrayData = [1, 2, 3, 4, 5];
+// const objectData = { name: 'John', age: 30, city: 'New York' };
+
+// demonstrateConsoleDebugging(arrayData);
+// demonstrateConsoleDebugging(objectData);
+
+// //debugger statement and breakpoints
+// function stepThroughDebugging(numbers) {
+//   debugger; // will pause execution in browser
+
+//   let sum = 0;
+//   let count = 0;
+
+//   for (let i = 0; i < numbers.length; i++) {
+//     const currentNumber = numbers[i];
+
+//     console.log(`Processing index ${i}: value = ${currentNumber}`);
+
+//     if (typeof currentNumber === 'number') {
+//       sum += currentNumber;
+//       count++;
+//     } else {
+//       console.error(`Invalid number at index ${i}:`, currentNumber);
+//     }
+//   }
+
+//   const average = count > 0 ? sum / count : 0;
+//   console.log('Final results:', { sum, count, average });
+
+//   return average;
+// }
+
+// const mixedNumbers = [10, 20, 'error', 30, null, 40];
+// const debugResult = stepThroughDebugging(mixedNumbers);
+// console.log('Debug session result:', debugResult);
+
+// //systematic bug fixing
+// function calculateAverageScoreFixed(scores) {
+//   if (!Array.isArray(scores) || scores.length === 0) {
+//     console.error('Invalid input: scores must be a non-empty array');
+//     return 0;
+//   }
+
+//   // proper initialization
+//   let total = 0;
+
+//   // correct loop condition
+//   for (let i = 0; i < scores.length; i++) {
+//     // < instead of <=
+
+//     if (typeof scores[i] === 'number') {
+//       total += scores[i];
+//     } else {
+//       console.warn(`Skipping non-number value at index ${i}:`, scores[i]);
+//     }
+//   }
+
+//   // correct division
+//   return total / scores.length; // FIXED: remove + 1
+// }
+
+// const fixedResult = calculateAverageScoreFixed(testScores);
+// console.log('Fixed result:', fixedResult);
+
+// //comprehensive debugging
+// console.group('Debugging Verification Tests');
+
+// // normal case
+// const normalScores = [85, 92, 78, 96, 88];
+// const normalResult = calculateAverageScoreFixed(normalScores);
+// console.log('Normal case result:', normalResult);
+
+// // edge case w invalid data
+// const mixedScores = [85, 'invalid', 92, null, 78];
+// const mixedResult = calculateAverageScoreFixed(mixedScores);
+// console.log('Mixed data result:', mixedResult);
+
+// // error case w invalid input
+// const errorResult = calculateAverageScoreFixed('not an array');
+// console.log('Error case result:', errorResult);
+
+// // edge case w empty array
+// const emptyResult = calculateAverageScoreFixed([]);
+// console.log('Empty array result:', emptyResult);
+
+// console.groupEnd();
+
+// console.log('Systematic debugging process successfully applied!');
+// console.log(
+//   'All bugs identified, isolated, investigated, fixed, and prevented'
+// );
+
 'use strict';
 
-console.log('=== HOUR 3: RESEARCH & DEBUGGING MASTERY ===');
-console.log(
-  'Goal: Master research and debugging like a professional developer'
-);
-console.log(
-  'Strategic research builds lasting knowledge, not just quick fixes'
-);
+console.log('=== HOUR 4: ADVANCED PROBLEM-SOLVING MASTERY ===');
 
-//finding max value in array
-function demonstrateArrayMax(numbers) {
-  if (!numbers.length) {
-    return { method1: null, method2: null, method3: null };
+console.log('Ready to tackle complex problems using systematic approaches');
+console.log('Challenge: Build solutions that work under pressure');
+
+const data1 = [17, 21, 23];
+const data2 = [12, 5, -5, 0, 4];
+
+function printForecast(arr) {
+  let str = '';
+
+  for (let i = 0; i < arr.length; i++) {
+    str += `${arr[i]}°C in ${i + 1} days ... `;
   }
 
-  const method1 = Math.max(...numbers);
+  console.log('...' + str);
+}
 
-  // for loop
-  let method2 = numbers[0];
-  for (let i = 1; i < numbers.length; i++) {
-    if (numbers[i] > method2) method2 = numbers[i];
-  }
+printForecast(data1);
+printForecast(data2);
 
-  // reduce method
-  const method3 = numbers.reduce((max, current) =>
-    current > max ? current : max
+console.log('Weather forecast formatter working correctly!');
+
+// using array methods instead of loops
+function printForecastMap(arr) {
+  const formatted = arr.map((temp, index) => `${temp}°C in ${index + 1} days`);
+  console.log('...' + formatted.join(' ... ') + ' ...');
+}
+
+// single line approach using reduce
+function printForecastReduce(arr) {
+  const result = arr.reduce(
+    (acc, temp, index) => acc + `${temp}°C in ${index + 1} days ... `,
+    '...'
   );
-
-  return { method1, method2, method3 };
+  console.log(result);
 }
 
-const testNumbers = [3, 7, 2, 9, 1, 5];
-const maxResults = demonstrateArrayMax(testNumbers);
-console.log('Multiple approaches from research:', maxResults);
+console.log('Testing alternative implementations:');
+printForecastMap(data1);
+printForecastReduce(data1);
 
-//stack overflow
-function reverseStringMethods(str) {
-  // most common
-  const method1 = str.split('').reverse().join('');
+//time pressured challenge
+function analyzeWorkWeek(dailyHours) {
+  // calculate total hrs using reduce
+  const totalHours = dailyHours.reduce((sum, hours) => sum + hours, 0);
 
-  // manual loop
-  let method2 = '';
-  for (let i = str.length - 1; i >= 0; i--) {
-    method2 += str[i];
+  // calculate ave w proper rounding
+  const averageHours = Math.round((totalHours / dailyHours.length) * 10) / 10;
+
+  // finding max hrs and corresponding day
+  const maxHours = Math.max(...dailyHours);
+  const maxDayIndex = dailyHours.indexOf(maxHours);
+  const days = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday',
+  ];
+  const maxDay = days[maxDayIndex];
+
+  // count days
+  const daysWorked = dailyHours.filter(hours => hours > 0).length;
+
+  // checks if full-time week
+  const isFullTime = totalHours >= 35;
+
+  return {
+    totalHours,
+    averageHours,
+    maxDay,
+    daysWorked,
+    isFullTime,
+  };
+}
+
+const weeklyHours = [7.5, 8, 6.5, 0, 8.5, 4, 0];
+const analysis = analyzeWorkWeek(weeklyHours);
+console.log('Work week analysis:', analysis);
+
+console.log('Challenge completed under time pressure!');
+
+// optimized ver
+function analyzeWorkWeekOptimized(dailyHours) {
+  if (!Array.isArray(dailyHours) || dailyHours.length !== 7) {
+    console.error('Invalid input: Expected array of 7 daily hours');
+    return null;
   }
 
-  //modern spread operator
-  const method3 = [...str].reverse().join('');
+  const totalHours = dailyHours.reduce((sum, hours) => sum + hours, 0);
+  const averageHours = Math.round((totalHours / 7) * 10) / 10;
+  const maxHours = Math.max(...dailyHours);
+  const maxDayIndex = dailyHours.indexOf(maxHours);
+  const daysWorked = dailyHours.filter(hours => hours > 0).length;
 
-  return { method1, method2, method3 };
+  const dayNames = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday',
+  ];
+
+  return {
+    totalHours,
+    averageHours,
+    maxDay: dayNames[maxDayIndex],
+    daysWorked,
+    isFullTime: totalHours >= 35,
+    workingDays: dailyHours
+      .map((hours, index) => (hours > 0 ? dayNames[index] : null))
+      .filter(day => day !== null),
+  };
 }
 
-const reverseResults = reverseStringMethods('hello');
-console.log('Stack Overflow research results:', reverseResults);
+const optimizedAnalysis = analyzeWorkWeekOptimized(weeklyHours);
+console.log('Optimized analysis:', optimizedAnalysis);
 
-// MDN
-function demonstrateConcat() {
-  const array1 = [1, 2, 3];
-  const array2 = [4, 5, 6];
-  const array3 = [7, 8, 9];
+//debug legacy
+const testData = [15, 18, 22, 19];
 
-  const simple = array1.concat(array2);
-  const multiple = array1.concat(array2, array3);
-
-  console.log('Original array1 unchanged:', array1);
-
-  return { simple, multiple };
-}
-
-const concatResults = demonstrateConcat();
-console.log('MDN documentation applied:', concatResults);
-
-// systematic debugging
-function calculateAverageScore(scores) {
-  let total; // should be initialized to 0
-
-  for (let i = 0; i <= scores.length; i++) {
-    // bug should be < not <=
-    total += scores[i];
+function enhancedForecastFunction(temperatures, options = {}) {
+  if (!Array.isArray(temperatures) || temperatures.length === 0) {
+    console.error('Invalid input: temperatures must be a non-empty array');
+    return '';
   }
 
-  return total / (scores.length + 1);
-}
+  const { unit = '°C', separator = '...', includeIndex = true } = options;
 
-const testScores = [85, 92, 78, 96, 88];
-const buggyResult = calculateAverageScore(testScores);
-console.log('Buggy result:', buggyResult);
+  let result = '';
 
-//console debugging
-function demonstrateConsoleDebugging(data) {
-  console.group('Debugging Session');
-
-  console.log('Input data:', data);
-
-  if (typeof data !== 'object') {
-    console.warn('Warning: Expected object, got', typeof data);
+  for (let i = 0; i < temperatures.length; i++) {
+    const dayNumber = includeIndex ? i + 1 : i;
+    result += `${temperatures[i]}${unit} in ${dayNumber} days${separator}`;
   }
 
-  console.table(data);
-  console.groupEnd();
-
-  return Array.isArray(data) ? data.length : Object.keys(data).length;
+  return separator + result.slice(0, -separator.length);
 }
 
-const arrayData = [1, 2, 3, 4, 5];
-const objectData = { name: 'John', age: 30, city: 'New York' };
-
-demonstrateConsoleDebugging(arrayData);
-demonstrateConsoleDebugging(objectData);
-
-//debugger statement and breakpoints
-function stepThroughDebugging(numbers) {
-  debugger; // will pause execution in browser
-
-  let sum = 0;
-  let count = 0;
-
-  for (let i = 0; i < numbers.length; i++) {
-    const currentNumber = numbers[i];
-
-    console.log(`Processing index ${i}: value = ${currentNumber}`);
-
-    if (typeof currentNumber === 'number') {
-      sum += currentNumber;
-      count++;
-    } else {
-      console.error(`Invalid number at index ${i}:`, currentNumber);
-    }
-  }
-
-  const average = count > 0 ? sum / count : 0;
-  console.log('Final results:', { sum, count, average });
-
-  return average;
-}
-
-const mixedNumbers = [10, 20, 'error', 30, null, 40];
-const debugResult = stepThroughDebugging(mixedNumbers);
-console.log('Debug session result:', debugResult);
-
-//systematic bug fixing
-function calculateAverageScoreFixed(scores) {
-  if (!Array.isArray(scores) || scores.length === 0) {
-    console.error('Invalid input: scores must be a non-empty array');
-    return 0;
-  }
-
-  // proper initialization
-  let total = 0;
-
-  // correct loop condition
-  for (let i = 0; i < scores.length; i++) {
-    // < instead of <=
-
-    if (typeof scores[i] === 'number') {
-      total += scores[i];
-    } else {
-      console.warn(`Skipping non-number value at index ${i}:`, scores[i]);
-    }
-  }
-
-  // correct division
-  return total / scores.length; // FIXED: remove + 1
-}
-
-const fixedResult = calculateAverageScoreFixed(testScores);
-console.log('Fixed result:', fixedResult);
-
-//comprehensive debugging
-console.group('Debugging Verification Tests');
-
-// normal case
-const normalScores = [85, 92, 78, 96, 88];
-const normalResult = calculateAverageScoreFixed(normalScores);
-console.log('Normal case result:', normalResult);
-
-// edge case w invalid data
-const mixedScores = [85, 'invalid', 92, null, 78];
-const mixedResult = calculateAverageScoreFixed(mixedScores);
-console.log('Mixed data result:', mixedResult);
-
-// error case w invalid input
-const errorResult = calculateAverageScoreFixed('not an array');
-console.log('Error case result:', errorResult);
-
-// edge case w empty array
-const emptyResult = calculateAverageScoreFixed([]);
-console.log('Empty array result:', emptyResult);
-
-console.groupEnd();
-
-console.log('Systematic debugging process successfully applied!');
+console.log('Enhanced function (default):', enhancedForecastFunction(testData));
 console.log(
-  'All bugs identified, isolated, investigated, fixed, and prevented'
+  'Enhanced function (custom):',
+  enhancedForecastFunction(testData, {
+    unit: '°F',
+    separator: ' | ',
+    includeIndex: true,
+  })
 );
+
+console.log('Complete developer skills successfully applied!');
+console.log('Legacy code debugged, fixed, and enhanced systematically');
