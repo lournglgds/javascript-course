@@ -47,14 +47,60 @@ document.querySelector('.check').addEventListener('click', function () {
   //if guess is correct
   if (guess === secretNumber) {
     console.log('Your guess is correct!');
-    document.querySelector('.message').textContent = 'Correct Number 🥳';
+    // document.querySelector('.message').textContent = 'Correct Number 🥳';
 
     //shows the secret num if guess is correct
     document.querySelector('.number').textContent = secretNumber;
+
+    //inputs the highscore
+    if (score > highscore) {
+      highscore = score;
+      document.querySelector('.highscore').textContent = highscore;
+    }
+    //para 'di na magalaw once the player won
+    document.querySelector('.message').textContent = 'You have won!';
+    document.querySelector('.guess').disabled = true;
+    document.querySelector('.check').disabled = true;
   } else if (guess > secretNumber) {
     console.log('Too high!');
     document.querySelector('.message').textContent = 'Too high! 😥';
+    score--; //score decrease when wrong
+    document.querySelector('.score').textContent = score; //updates the score
+    //para 'di na magalaw once the player lost
+    if (score < 1) {
+      document.querySelector('.message').textContent =
+        'You have lost, press again!';
+      document.querySelector('number').textContent = secretNumber;
+      document.querySelector('.guess').disabled = true;
+      document.querySelector('.check').disabled = true;
+    }
   } else if (guess < secretNumber) {
     document.querySelector('.message').textContent = 'Too Low! 😥';
+    score--;
+    document.querySelector('.score').textContent = score;
+    if (score < 1) {
+      document.querySelector('.message').textContent =
+        'You have lost, press again!';
+      document.querySelector('number').textContent = secretNumber;
+      document.querySelector('.guess').disabled = true;
+      document.querySelector('.check').disabled = true;
+    }
   }
+});
+
+//for again button once the player lost
+document.querySelector('.again').addEventListener('click', function () {
+  score = 20;
+  secretNumber = Math.trunc(Math.random() * 20) + 1;
+  console.log('New secret number is:', secretNumber); //para lumabas new secret num
+  //restart the message display
+  document.querySelector('.message').textContent = 'Start guessing';
+  //restart the question mark
+  document.querySelector('.number').textContent = '?';
+  //update the score in the ui
+  document.querySelector('.score').textContent = score;
+  //to empty the input field box when again btn is clicked
+  document.querySelector('.guess').value = '';
+  document.querySelector('.guess').disabled = false;
+  document.querySelector('.check').disabled = false;
 });
