@@ -29,7 +29,11 @@ const diceEl = document.querySelector('.dice');
 //select roll button
 const btnRoll = document.querySelector('.btn--roll');
 
+//select hold button
 const btnHold = document.querySelector('.btn--hold');
+
+//new game button
+const btnNew = document.querySelector('.btn--new');
 
 // game initialization function
 const init = function () {
@@ -50,6 +54,12 @@ const init = function () {
   current0El.textContent = 0;
   current1El.textContent = 0;
   diceEl.classList.add('hidden');
+
+  //for new game button this resets all the winner/active player styling
+  player0El.classList.remove('player--winner');
+  player1El.classList.remove('player--winner');
+  player0El.classList.add('player--active');
+  player1El.classList.remove('player--active');
 };
 
 init();
@@ -104,7 +114,27 @@ btnHold.addEventListener('click', function () {
     // updates the ui
     document.getElementById(`score--${activePlayer}`).textContent =
       scores[activePlayer];
+    if (scores[activePlayer] >= 100) {
+      //if player score is 100 or more
+      //finish the game
+      playing = false;
+      diceEl.classList.add('hidden');
 
-    switchPlayer();
+      //winner styling
+      document
+        .querySelector(`.player--${activePlayer}`)
+        .classList.add('player--winner');
+
+      //remove active player styling
+      document
+        .querySelector(`.player--${activePlayer}`)
+        .classList.remove('player--active');
+    } else {
+      // if there's still no winner switch to next player
+      switchPlayer();
+    }
   }
 });
+
+//new game button event listener
+btnNew.addEventListener('click', init);
