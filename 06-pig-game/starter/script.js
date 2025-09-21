@@ -29,6 +29,8 @@ const diceEl = document.querySelector('.dice');
 //select roll button
 const btnRoll = document.querySelector('.btn--roll');
 
+const btnHold = document.querySelector('.btn--hold');
+
 // game initialization function
 const init = function () {
   //start w both players at 0 score
@@ -65,8 +67,44 @@ btnRoll.addEventListener('click', function () {
       document.getElementById(`current--${activePlayer}`).textContent =
         currentScore;
     } else {
-      //switch to next player (1)
-      document.getElementById(`current--${activePlayer}`).textContent = 0;
+      switchPlayer();
+      console.log('Active player: ', activePlayer);
+
+      console.log(
+        'Player 0 active:',
+        player0El.classList.contains('player--active')
+      );
+
+      console.log(
+        'Player 1 active:',
+        player1El.classList.contains('player--active')
+      );
     }
+  }
+});
+
+//switching players function
+const switchPlayer = function () {
+  document.getElementById(`current--${activePlayer}`).textContent = 0;
+  currentScore = 0;
+
+  activePlayer = activePlayer === 0 ? 1 : 0; //switch active player
+
+  player0El.classList.toggle('player--active'); //remove active class from player 0
+  player1El.classList.toggle('player--active'); //add active class to player 1 and vice versa
+};
+
+//hold button event listener
+btnHold.addEventListener('click', function () {
+  if (playing && currentScore > 0) {
+    //to not switch player if current score is 0
+
+    scores[activePlayer] += currentScore;
+
+    // updates the ui
+    document.getElementById(`score--${activePlayer}`).textContent =
+      scores[activePlayer];
+
+    switchPlayer();
   }
 });
