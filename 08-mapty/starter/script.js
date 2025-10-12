@@ -102,3 +102,132 @@ console.log(
   run1 instanceof Workout,
   cycling1 instanceof Workout
 );
+
+console.log('=== TESTING GEOLOCATION API ===');
+//leaftlet to use interactive maps
+class App {
+  #map;
+  #mapZoomLevel = 13;
+  #mapEvent;
+  #workouts = [];
+
+  constructor() {
+    console.log('App starting');
+    this._getPosition();
+  }
+
+  _getPosition() {
+    if (navigator.geolocation) {
+      console.log('🔍 Requesting user location...');
+      navigator.geolocation.getCurrentPosition(
+        this._loadMap.bind(this),
+
+        {
+          timeout: 10000,
+          enableHighAccuracy: true,
+          maximumAge: 600000,
+        }
+      );
+    } else {
+      alert('❌ Geolocation is not supported by this browser');
+      this._loadDefaultMap();
+    }
+  }
+
+  _handleLocationError(error) {
+    console.error('Geolocation error:', error);
+
+    let message = 'Could not get your position. ';
+
+    switch (error.code) {
+      case error.PERMISSION_DENIED:
+        message +=
+          'Location access was denied. Please enable location services and refresh the page.';
+        break;
+      case error.POSITION_UNAVAILABLE:
+        message += 'Location information is unavailable.';
+        break;
+      case error.TIMEOUT:
+        message += 'Location request timed out.';
+        break;
+      default:
+        message += 'An unknown error occurred.';
+        break;
+    }
+
+    alert(`📍 ${message}`);
+    this._loadDefaultMap();
+  }
+
+  _loadMap(position) {
+    const { latitude, longitude } = position.coords;
+    console.log(`Loading map at coordinates: ${latitude}, ${longitude}`);
+
+    //creates coordinates array + VVV IMPORTANT
+    const coords = [latitude, longitude];
+
+    //pinpoint ng location
+    this.#map = L.map('map').setView(coords, this.#mapZoomLevel);
+
+    //add open street map
+    L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+      attribution:
+        '&copy; <a href="https://www.opwnstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    }).addTo(this.#map);
+
+    //add a marker to the users location
+    L.marker(coords).addTo(this.#map).bindPopup('You are here!').openPopup();
+
+    //DITO event listener
+    this.#map.on('click', function (mapEvent) {
+      console.log('Map clicked!', mapEvent);
+      //extract coordinates
+      const { lat, lng } = mapEvent.latlng;
+      console.log(`Map clicked at: ${lat.toFixed(4)}, ${lng.toFixed(4)}`);
+
+      //create blue marker
+      L.marker([lat, lng])
+        .addTo(this.#map)
+        .bindPopup(
+          `Workout location<br>Lat: ${lat.toFixed(4)}, ${lng.toFixed(4)}`
+        )
+        .openPopup();
+    });
+
+    console.log('Map loaded successfully at user location');
+  }
+
+  _loadDefaultMap() {
+    console.log('Loading default map location around Manila');
+
+    const defaultCoords = [14.604, 120.994];
+
+    this.#map = L.map('map').setView(defaultCoords, this.#mapZoomLevel);
+
+    //add open street map
+    L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+      attribution:
+        '&copy; <a href="https://www.opwnstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    }).addTo(this.#map);
+
+    this.#map.on('click', function (mapEvent) {
+      console.log('Map clicked!', mapEvent);
+      //extract coordinates
+      const { lat, lng } = mapEvent.latlng;
+      console.log(`Map clicked at: ${lat.toFixed(4)}, ${lng.toFixed(4)}`);
+
+      //create blue marker
+      L.marker([lat, lng])
+        .addTo(this.#map)
+        .bindPopup(
+          `Workout location<br>Lat: ${lat.toFixed(4)}, ${lng.toFixed(4)}`
+        )
+        .openPopup();
+    });
+
+    console.log('Default map loaded successfully');
+  }
+}
+
+const app = new App();
+ 
